@@ -1,0 +1,20 @@
+{
+  "name": "http-library-conxios",
+  "version": "1.0.0",
+  "description": "A simple promise based http livrary",
+  "main": "core.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u0016https://github.com/felipegs07/http-library-conxios"
+  },
+  "keywords": [
+    "http",
+    "promise",
+    "library"
+  ],
+  "author": "Felipe G.S",
+  "license": "ISC"
+}
