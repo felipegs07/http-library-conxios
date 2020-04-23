@@ -4,7 +4,11 @@ function conxiosCreator(config = {}){
     }
     const createRequestUrl = (endpoint) => {
         return config.baseURL ? config.baseURL + endpoint : endpoint;
-    }
+		}
+		const configHeaders = (headers) => {
+			console.log(headers);
+			//xhr.setRequestHeader(data.headers);
+		}
 
     const xhr = createXHRObject();
 
@@ -12,9 +16,8 @@ function conxiosCreator(config = {}){
 			http(method = '', endpoint = '', data = {}) {
 					return new Promise((resolve, reject) => {
 							xhr.open(method, createRequestUrl(endpoint), true);
-
-							console.log(data)
-							if(data.headers) xhr.setRequestHeader(data.headers);
+							
+							configHeaders(data.headers);
 							console.log('xhr', xhr);
 
 							xhr.onload = () => {
@@ -29,11 +32,20 @@ function conxiosCreator(config = {}){
 							xhr.send(data.body);
 					});
 			},
-			get(endpoint) {
+			get(endpoint, data) {
 					return this.http('GET', endpoint, data);
 			},
 			post(endpoint, data) {
 					return this.http('POST', endpoint, data);
+			},
+			patch(endpoint, data) {
+				return this.http('PATCH', endpoint, data);
+			},
+			put(endpoint, data) {
+				return this.http('PUT', endpoint, data);
+			},
+			delete(endpoint, data) {
+				return this.http('DELETE', endpoint, data);
 			}
 	}
 }

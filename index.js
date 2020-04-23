@@ -1,6 +1,6 @@
 const conxios = conxiosCreator();
 
-conxios.post("https://jsonplaceholder.typicode.com/posts", {
+conxios.get("https://jsonplaceholder.typicode.com/posts", {
 	body: JSON.stringify({
 		title: 'foo',
 		body: 'bar',
